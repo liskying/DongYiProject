@@ -27,7 +27,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Dy.Dto\Dy.Dto.csproj" />
-    <ProjectReference Include="..\Dy.Infrs\Dy.Infrs.csproj" />
   </ItemGroup>
 
 </Project>

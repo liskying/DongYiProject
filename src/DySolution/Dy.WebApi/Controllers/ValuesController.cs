@@ -9,7 +9,6 @@ namespace Dy.WebApi.Controllers
     /// <summary>
     /// 示例Api
     /// </summary>
-    [Produces("application/json")]
     [Route("api/[controller]")]
     public class ValuesController : BaseController
     {

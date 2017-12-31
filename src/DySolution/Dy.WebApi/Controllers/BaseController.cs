@@ -9,7 +9,7 @@ namespace Dy.WebApi.Controllers
     /// <summary>
     /// 控制器基类
     /// </summary>
-    [Produces("application/json", "text/json")]
+    [Produces("application/json", "text/json", "text/xml")]
     public abstract class BaseController : Controller
     {
     }
