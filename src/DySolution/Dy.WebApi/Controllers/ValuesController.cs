@@ -6,36 +6,57 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Dy.WebApi.Controllers
 {
+    /// <summary>
+    /// 示例Api
+    /// </summary>
+    [Produces("application/json")]
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class ValuesController : BaseController
     {
-        // GET api/values
+        /// <summary>
+        /// 获取信息
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
+        /// <summary>
+        /// 查找信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST api/values
+        /// <summary>
+        /// 新增信息
+        /// </summary>
+        /// <param name="value">信息内容</param>
         [HttpPost]
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT api/values/5
+        /// <summary>
+        /// 更新信息
+        /// </summary>
+        /// <param name="id">信息Id</param>
+        /// <param name="value">信息内容</param>
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/values/5
+        /// <summary>
+        /// 删除信息
+        /// </summary>
+        /// <param name="id">信息Id</param>
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
