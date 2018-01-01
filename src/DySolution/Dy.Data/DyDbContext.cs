@@ -45,66 +45,67 @@ namespace Dy.Data
         /// <summary>
         /// 菜单
         /// </summary>
-        public DbSet<SysMenu> Menus { get; set; }
+        public DbSet<SysMenu> SysMenu { get; set; }
         /// <summary>
         /// 操作按钮
         /// </summary>
-        public DbSet<SysOperate> Operates { get; set; }
+        public DbSet<SysOperate> SysOperate { get; set; }
         /// <summary>
         /// 日志
         /// </summary>
-        public DbSet<SysLog> Logs { get; set; }
+        public DbSet<SysLog> SysLog { get; set; }
         /// <summary>
         /// 日志明细
         /// </summary>
-        public DbSet<SysLogDetail> LogDetails { get; set; }
+        public DbSet<SysLogDetail> SysLogDetail { get; set; }
         /// <summary>
         /// 字典
         /// </summary>
-        public DbSet<SysDictionary> Dictionaries { get; set; }
+        public DbSet<SysDictionary> SysDictionary { get; set; }
         /// <summary>
         /// 部门
         /// </summary>
-        public DbSet<SysDept> Depts { get; set; }
+        public DbSet<SysDept> SysDept { get; set; }
         /// <summary>
         /// 用户
         /// </summary>
-        public new DbSet<SysUser> Users { get; set; }
+        public DbSet<SysUser> SysUser { get; set; }
         /// <summary>
         /// 角色
         /// </summary>
-        public new DbSet<SysRole> Roles { get; set; }
+        public DbSet<SysRole> SysRole { get; set; }
         /// <summary>
         /// 用户权限
         /// </summary>
-        public DbSet<SysRight> UserRights { get; set; }
+        public DbSet<SysRight> SysRight { get; set; }
         /// <summary>
         /// 用户部门
         /// </summary>
-        public DbSet<SysUserDept> UserDepts { get; set; }
+        public DbSet<SysUserDept> SysUserDept { get; set; }
         /// <summary>
         /// 用户角色
         /// </summary>
-        public new DbSet<SysUserRole> UserRoles { get; set; }
+        public DbSet<SysUserRole> SysUserRole { get; set; }
         /// <summary>
         /// 用户声明
         /// </summary>
-        public new DbSet<SysUserClaim> UserClaims { get; set; }
+        public DbSet<SysUserClaim> SysUserClaim { get; set; }
         /// <summary>
         /// 用户登录
         /// </summary>
-        public new DbSet<SysUserLogin> UserLogins { get; set; }
+        public DbSet<SysUserLogin> SysUserLogin { get; set; }
         /// <summary>
         /// 角色声明
         /// </summary>
-        public new DbSet<SysRoleClaim> RoleClaims { get; set; }
+        public DbSet<SysRoleClaim> SysRoleClaim { get; set; }
         /// <summary>
         /// 用户令牌
         /// </summary>
-        public new DbSet<SysUserToken> UserTokens { get; set; }
+        public DbSet<SysUserToken> SysUserToken { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+
             new SysDeptMap(_oracleFlag, _isConverToUpper).Configure(builder.Entity<SysDept>());
             new SysDictionaryMap(_oracleFlag, _isConverToUpper).Configure(builder.Entity<SysDictionary>());
             new SysLogMap(_oracleFlag, _isConverToUpper).Configure(builder.Entity<SysLog>());
@@ -124,7 +125,7 @@ namespace Dy.Data
             new SysUserTokenMap(_oracleFlag, _isConverToUpper).Configure(builder.Entity<SysUserToken>());
 
             #region 其他设置
-            //表名复数形式内置关闭
+
 
             #endregion
 

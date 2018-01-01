@@ -25,8 +25,4 @@
     <ProjectReference Include="..\Dy.Infrs\Dy.Infrs.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Initialize\" />
-  </ItemGroup>
-
 </Project>

@@ -10,7 +10,7 @@ namespace Dy.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Depts",
+                name: "SysDept",
                 columns: table => new
                 {
                     Id = table.Column<string>(maxLength: 36, nullable: false),
@@ -30,11 +30,11 @@ namespace Dy.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Depts", x => x.Id);
+                    table.PrimaryKey("PK_SysDept", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Dictionaries",
+                name: "SysDictionary",
                 columns: table => new
                 {
                     Id = table.Column<string>(maxLength: 36, nullable: false),
@@ -55,12 +55,12 @@ namespace Dy.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Dictionaries", x => x.Id);
-                    table.UniqueConstraint("AK_Dictionaries_DicType_DicKey", x => new { x.DicType, x.DicKey });
+                    table.PrimaryKey("PK_SysDictionary", x => x.Id);
+                    table.UniqueConstraint("AK_SysDictionary_DicType_DicKey", x => new { x.DicType, x.DicKey });
                 });
 
             migrationBuilder.CreateTable(
-                name: "Logs",
+                name: "SysLog",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -77,11 +77,11 @@ namespace Dy.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Logs", x => x.Id);
+                    table.PrimaryKey("PK_SysLog", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Menus",
+                name: "SysMenu",
                 columns: table => new
                 {
                     Id = table.Column<string>(maxLength: 36, nullable: false),
@@ -101,12 +101,12 @@ namespace Dy.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Menus", x => x.Id);
-                    table.UniqueConstraint("AK_Menus_MenuCode", x => x.MenuCode);
+                    table.PrimaryKey("PK_SysMenu", x => x.Id);
+                    table.UniqueConstraint("AK_SysMenu_MenuCode", x => x.MenuCode);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Operates",
+                name: "SysOperate",
                 columns: table => new
                 {
                     Id = table.Column<string>(maxLength: 36, nullable: false),
@@ -118,9 +118,30 @@ namespace Dy.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Operates", x => x.Id);
-                    table.UniqueConstraint("AK_Operates_OptionCode", x => x.OptionCode);
-                    table.UniqueConstraint("AK_Operates_OptionName", x => x.OptionName);
+                    table.PrimaryKey("PK_SysOperate", x => x.Id);
+                    table.UniqueConstraint("AK_SysOperate_OptionCode", x => x.OptionCode);
+                    table.UniqueConstraint("AK_SysOperate_OptionName", x => x.OptionName);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SysRight",
+                columns: table => new
+                {
+                    Id = table.Column<string>(maxLength: 36, nullable: false),
+                    BizScope = table.Column<string>(nullable: true),
+                    CreateTime = table.Column<DateTime>(nullable: true),
+                    Creator = table.Column<string>(maxLength: 200, nullable: true),
+                    DeleteState = table.Column<int>(nullable: true),
+                    ManagerScope = table.Column<string>(nullable: true),
+                    MobileRight = table.Column<string>(nullable: true),
+                    ModuleRight = table.Column<string>(nullable: true),
+                    RowVersion = table.Column<byte[]>(nullable: true),
+                    UpdateTime = table.Column<DateTime>(nullable: true),
+                    UserId = table.Column<string>(maxLength: 36, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SysRight", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -189,28 +210,7 @@ namespace Dy.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserRights",
-                columns: table => new
-                {
-                    Id = table.Column<string>(maxLength: 36, nullable: false),
-                    BizScope = table.Column<string>(nullable: true),
-                    CreateTime = table.Column<DateTime>(nullable: true),
-                    Creator = table.Column<string>(maxLength: 200, nullable: true),
-                    DeleteState = table.Column<int>(nullable: true),
-                    ManagerScope = table.Column<string>(nullable: true),
-                    MobileRight = table.Column<string>(nullable: true),
-                    ModuleRight = table.Column<string>(nullable: true),
-                    RowVersion = table.Column<byte[]>(nullable: true),
-                    UpdateTime = table.Column<DateTime>(nullable: true),
-                    UserId = table.Column<string>(maxLength: 36, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserRights", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "LogDetails",
+                name: "SysLogDetail",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -225,11 +225,11 @@ namespace Dy.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LogDetails", x => x.Id);
+                    table.PrimaryKey("PK_SysLogDetail", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_LogDetails_Logs_LogId",
+                        name: "FK_SysLogDetail_SysLog_LogId",
                         column: x => x.LogId,
-                        principalTable: "Logs",
+                        principalTable: "SysLog",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -270,6 +270,39 @@ namespace Dy.Data.Migrations
                     table.PrimaryKey("PK_SysUserClaim", x => x.Id);
                     table.ForeignKey(
                         name: "FK_SysUserClaim_SysUser_UserId",
+                        column: x => x.UserId,
+                        principalTable: "SysUser",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SysUserDept",
+                columns: table => new
+                {
+                    Id = table.Column<string>(maxLength: 36, nullable: false),
+                    CreateTime = table.Column<DateTime>(nullable: true),
+                    DeleteState = table.Column<int>(nullable: true),
+                    DeptId = table.Column<string>(maxLength: 36, nullable: false),
+                    EndDate = table.Column<DateTime>(nullable: true),
+                    IsMajor = table.Column<bool>(nullable: true),
+                    JobState = table.Column<bool>(nullable: true),
+                    RowVersion = table.Column<byte[]>(nullable: true),
+                    StartDate = table.Column<DateTime>(nullable: true),
+                    UpdateTime = table.Column<DateTime>(nullable: true),
+                    UserId = table.Column<string>(maxLength: 36, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SysUserDept", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SysUserDept_SysDept_DeptId",
+                        column: x => x.DeptId,
+                        principalTable: "SysDept",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_SysUserDept_SysUser_UserId",
                         column: x => x.UserId,
                         principalTable: "SysUser",
                         principalColumn: "Id",
@@ -350,42 +383,9 @@ namespace Dy.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "UserDepts",
-                columns: table => new
-                {
-                    Id = table.Column<string>(maxLength: 36, nullable: false),
-                    CreateTime = table.Column<DateTime>(nullable: true),
-                    DeleteState = table.Column<int>(nullable: true),
-                    DeptId = table.Column<string>(maxLength: 36, nullable: false),
-                    EndDate = table.Column<DateTime>(nullable: true),
-                    IsMajor = table.Column<bool>(nullable: true),
-                    JobState = table.Column<bool>(nullable: true),
-                    RowVersion = table.Column<byte[]>(nullable: true),
-                    StartDate = table.Column<DateTime>(nullable: true),
-                    UpdateTime = table.Column<DateTime>(nullable: true),
-                    UserId = table.Column<string>(maxLength: 36, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserDepts", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_UserDepts_Depts_DeptId",
-                        column: x => x.DeptId,
-                        principalTable: "Depts",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_UserDepts_SysUser_UserId",
-                        column: x => x.UserId,
-                        principalTable: "SysUser",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
-                name: "IX_LogDetails_LogId",
-                table: "LogDetails",
+                name: "IX_SysLogDetail_LogId",
+                table: "SysLogDetail",
                 column: "LogId");
 
             migrationBuilder.CreateIndex(
@@ -396,6 +396,16 @@ namespace Dy.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_SysUserClaim_UserId",
                 table: "SysUserClaim",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SysUserDept_DeptId",
+                table: "SysUserDept",
+                column: "DeptId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SysUserDept_UserId",
+                table: "SysUserDept",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -417,37 +427,33 @@ namespace Dy.Data.Migrations
                 name: "IX_SysUserToken_UserId",
                 table: "SysUserToken",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserDepts_DeptId",
-                table: "UserDepts",
-                column: "DeptId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_UserDepts_UserId",
-                table: "UserDepts",
-                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Dictionaries");
+                name: "SysDictionary");
 
             migrationBuilder.DropTable(
-                name: "LogDetails");
+                name: "SysLogDetail");
 
             migrationBuilder.DropTable(
-                name: "Menus");
+                name: "SysMenu");
 
             migrationBuilder.DropTable(
-                name: "Operates");
+                name: "SysOperate");
+
+            migrationBuilder.DropTable(
+                name: "SysRight");
 
             migrationBuilder.DropTable(
                 name: "SysRoleClaim");
 
             migrationBuilder.DropTable(
                 name: "SysUserClaim");
+
+            migrationBuilder.DropTable(
+                name: "SysUserDept");
 
             migrationBuilder.DropTable(
                 name: "SysUserLogin");
@@ -459,19 +465,13 @@ namespace Dy.Data.Migrations
                 name: "SysUserToken");
 
             migrationBuilder.DropTable(
-                name: "UserDepts");
+                name: "SysLog");
 
             migrationBuilder.DropTable(
-                name: "UserRights");
-
-            migrationBuilder.DropTable(
-                name: "Logs");
+                name: "SysDept");
 
             migrationBuilder.DropTable(
                 name: "SysRole");
-
-            migrationBuilder.DropTable(
-                name: "Depts");
 
             migrationBuilder.DropTable(
                 name: "SysUser");

@@ -65,7 +65,7 @@ namespace Dy.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Depts");
+                    b.ToTable("SysDept");
                 });
 
             modelBuilder.Entity("Dy.Data.Domain.SysDictionary", b =>
@@ -116,7 +116,7 @@ namespace Dy.Data.Migrations
 
                     b.HasAlternateKey("DicType", "DicKey");
 
-                    b.ToTable("Dictionaries");
+                    b.ToTable("SysDictionary");
                 });
 
             modelBuilder.Entity("Dy.Data.Domain.SysLog", b =>
@@ -154,7 +154,7 @@ namespace Dy.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Logs");
+                    b.ToTable("SysLog");
                 });
 
             modelBuilder.Entity("Dy.Data.Domain.SysLogDetail", b =>
@@ -186,7 +186,7 @@ namespace Dy.Data.Migrations
 
                     b.HasIndex("LogId");
 
-                    b.ToTable("LogDetails");
+                    b.ToTable("SysLogDetail");
                 });
 
             modelBuilder.Entity("Dy.Data.Domain.SysMenu", b =>
@@ -237,7 +237,7 @@ namespace Dy.Data.Migrations
 
                     b.HasAlternateKey("MenuCode");
 
-                    b.ToTable("Menus");
+                    b.ToTable("SysMenu");
                 });
 
             modelBuilder.Entity("Dy.Data.Domain.SysOperate", b =>
@@ -269,7 +269,7 @@ namespace Dy.Data.Migrations
 
                     b.HasAlternateKey("OptionName");
 
-                    b.ToTable("Operates");
+                    b.ToTable("SysOperate");
                 });
 
             modelBuilder.Entity("Dy.Data.Domain.SysRight", b =>
@@ -303,7 +303,7 @@ namespace Dy.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserRights");
+                    b.ToTable("SysRight");
                 });
 
             modelBuilder.Entity("Dy.Data.Domain.SysRole", b =>
@@ -514,7 +514,7 @@ namespace Dy.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserDepts");
+                    b.ToTable("SysUserDept");
                 });
 
             modelBuilder.Entity("Dy.Data.Domain.SysUserLogin", b =>

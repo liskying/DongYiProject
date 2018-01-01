@@ -1,0 +1,32 @@
+﻿1.启用自动迁移
+	Enabled-Migrations
+
+2.添加迁移
+	2.1生成Db迁移文件
+		Add-Migration Init
+
+3.获取迁移脚本
+	3.1生成迁移脚本
+		update-database -Script -SourceMigration:$InitialDataBase 
+
+	3.2.Copy-SQL
+	3.3.目标Db环境执行SQL更新DB
+
+4.手动通过包管理控制台更新
+	4.1更新DB
+		update-database
+		update-database -verbose 可查看执行SQL
+
+	4.2强制更新Db
+		update-database -force
+
+5.Script
+	5.1生成DB初始版本SQL
+		Update-Database -Script -SourceMigration: $InitialDatabase 
+
+	5.2生成到XXXVersion版本的Db更新SQL
+		Update-Database -Script -SourceMigration: $InitialDatabase -TargetMigration: XXXVersion
+		
+6.详细用法参考
+	https://msdn.microsoft.com/en-us/data/jj591621
+
