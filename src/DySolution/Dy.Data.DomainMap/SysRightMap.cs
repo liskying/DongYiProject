@@ -1,4 +1,5 @@
-﻿using Dy.Data.Domain;
+﻿using Dy.Core;
+using Dy.Data.Domain;
 using Dy.Infrs;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -17,7 +18,7 @@ namespace Dy.Data.DomainMap
         public override void Configure(EntityTypeBuilder<SysRight> builder)
         {
             //表名
-            builder.HasBaseType("SysRight".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.HasBaseType("SysRight".ToUpper(IsOracleDb, IsConvertToUpperChar));
             // Primary Key
             builder.HasKey(t => t.Id);
 
@@ -42,18 +43,18 @@ namespace Dy.Data.DomainMap
             builder.Property(t => t.Creator).HasMaxLength(200);
 
             // Table & Column Mappings
-            builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.UserId).HasField("UserId".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.ModuleRight).HasField("ModuleRight".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.BizScope).HasField("BizScope".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.ManagerScope).HasField("ManagerScope".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.MobileRight).HasField("MobileRight".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.Creator).HasField("Creator".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.UserId).HasField("UserId".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.ModuleRight).HasField("ModuleRight".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.BizScope).HasField("BizScope".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.ManagerScope).HasField("ManagerScope".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.MobileRight).HasField("MobileRight".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Creator).HasField("Creator".ToUpper(IsOracleDb, IsConvertToUpperChar));
 
-            builder.Property(t => t.CreateTime).HasField("CreateTime".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.UpdateTime).HasField("UpdateTime".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.DeleteState).HasField("DeleteState".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.RowVersion).IsConcurrencyToken().ValueGeneratedOnAddOrUpdate();
+            //builder.Property(t => t.CreateTime).HasField("CreateTime".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.UpdateTime).HasField("UpdateTime".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.DeleteState).HasField("DeleteState".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.RowVersion).IsConcurrencyToken().ValueGeneratedOnAddOrUpdate();
         }
     }
 

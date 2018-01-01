@@ -1,4 +1,5 @@
-﻿using Dy.Data.Domain;
+﻿using Dy.Core;
+using Dy.Data.Domain;
 using Dy.Infrs;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -17,7 +18,7 @@ namespace Dy.Data.DomainMap
         public override void Configure(EntityTypeBuilder<SysUserDept> builder)
         {
             //表名
-            builder.HasBaseType("SysUserDept".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.HasBaseType("SysUserDept".ToUpper(IsOracleDb, IsConvertToUpperChar));
             // Primary Key
             builder.HasKey(t => t.Id);
 
@@ -37,13 +38,13 @@ namespace Dy.Data.DomainMap
             builder.Property(t => t.IsMajor);
 
             // Table & Column Mappings
-            builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.UserId).HasField("UserId".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.DeptId).HasField("DeptId".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.IsMajor).HasField("IsMajor".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.JobState).HasField("JobState".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.StartDate).HasField("StartDate".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.EndDate).HasField("EndDate".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.UserId).HasField("UserId".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.DeptId).HasField("DeptId".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.IsMajor).HasField("IsMajor".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.JobState).HasField("JobState".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.StartDate).HasField("StartDate".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.EndDate).HasField("EndDate".ToUpper(IsOracleDb, IsConvertToUpperChar));
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Dy.Data.Domain;
+﻿using Dy.Core;
+using Dy.Data.Domain;
 using Dy.Infrs;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -25,8 +26,12 @@ namespace Dy.Data.DomainMap
         public override void Configure(EntityTypeBuilder<SysUserToken> builder)
         {
             //表名
-            builder.HasBaseType("SysUserToken".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.HasBaseType("SysUserToken".ToUpper(IsOracleDb, IsConvertToUpperChar));
 
+            builder.HasKey(t => t.Id);
+            
+            builder.Property(t => t.Id).ValueGeneratedOnAdd();
+                        
             builder.Property(t => t.LoginProvider)
                 .IsRequired()
                 .HasMaxLength(1000);
@@ -42,10 +47,10 @@ namespace Dy.Data.DomainMap
                 .HasMaxLength(1000);
 
             // Table & Column Mappings
-            builder.Property(t => t.LoginProvider).HasField("LoginProvider".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.Name).HasField("Name".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.UserId).HasField("UserId".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.Value).HasField("Value".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.LoginProvider).HasField("LoginProvider".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Name).HasField("Name".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.UserId).HasField("UserId".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Value).HasField("Value".ToUpper(IsOracleDb, IsConvertToUpperChar));
 
         }
 

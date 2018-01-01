@@ -13,9 +13,10 @@ using System;
 namespace Dy.Data.Migrations
 {
     [DbContext(typeof(DyDbContext))]
-    partial class DyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180101082814_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

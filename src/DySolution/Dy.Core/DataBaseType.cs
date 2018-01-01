@@ -1,5 +1,5 @@
 ﻿
-namespace Dy.Data.Enums
+namespace Dy.Core
 {
     /// <summary>
     /// 数据库类型

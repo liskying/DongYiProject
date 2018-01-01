@@ -11,6 +11,11 @@ namespace Dy.Data.Domain
     public class SysUserToken : IdentityUserToken<string>
     {
         /// <summary>
+        /// 主键
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// 登录提供者
         /// </summary>
         public override string LoginProvider { get; set; }

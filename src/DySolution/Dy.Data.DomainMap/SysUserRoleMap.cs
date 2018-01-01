@@ -1,4 +1,5 @@
-﻿using Dy.Data.Domain;
+﻿using Dy.Core;
+using Dy.Data.Domain;
 using Dy.Infrs;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -17,7 +18,7 @@ namespace Dy.Data.DomainMap
         public override void Configure(EntityTypeBuilder<SysUserRole> builder)
         {
             //表名
-            builder.HasBaseType("SysUserRole".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.HasBaseType("SysUserRole".ToUpper(IsOracleDb, IsConvertToUpperChar));
             // Properties
             builder.Property(t => t.Id)
                 .IsRequired()
@@ -34,10 +35,10 @@ namespace Dy.Data.DomainMap
             builder.Property(t => t.IsMajor);
 
             // Table & Column Mappings
-            builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.UserId).HasField("UserId".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.RoleId).HasField("RoleId".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.IsMajor).HasField("IsMajor".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.UserId).HasField("UserId".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.RoleId).HasField("RoleId".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.IsMajor).HasField("IsMajor".ToUpper(IsOracleDb, IsConvertToUpperChar));
         }
     }
 }

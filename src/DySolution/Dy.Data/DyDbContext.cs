@@ -105,7 +105,7 @@ namespace Dy.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            //new SysDeptMap(_oracleFlag, _isConverToUpper).Configure(builder.Entity<SysDept>());
+            new SysDeptMap(_oracleFlag, _isConverToUpper).Configure(builder.Entity<SysDept>());
             new SysDictionaryMap(_oracleFlag, _isConverToUpper).Configure(builder.Entity<SysDictionary>());
             new SysLogMap(_oracleFlag, _isConverToUpper).Configure(builder.Entity<SysLog>());
             new SysLogDetailMap(_oracleFlag, _isConverToUpper).Configure(builder.Entity<SysLogDetail>());

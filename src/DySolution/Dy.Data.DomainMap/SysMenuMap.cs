@@ -1,4 +1,6 @@
-﻿using Dy.Data.Domain;
+﻿
+using Dy.Core;
+using Dy.Data.Domain;
 using Dy.Infrs;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -22,7 +24,7 @@ namespace Dy.Data.DomainMap
         public override void Configure(EntityTypeBuilder<SysMenu> builder)
         {
             //表名
-            builder.HasBaseType("SysMenu".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.HasBaseType("SysMenu".ToUpper(IsOracleDb, IsConvertToUpperChar));
             // Primary Key
             builder.HasKey(t => t.Id);
             builder.HasAlternateKey(u => u.MenuCode);
@@ -46,21 +48,22 @@ namespace Dy.Data.DomainMap
             builder.Property(t => t.Creator).HasMaxLength(200);
 
             // Table & Column Mappings
-            builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.MenuName).HasField("MenuCode".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.MenuName).HasField("MenuName".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.MenuType).HasField("MenuType".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.MenuState).HasField("MenuState".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.ParentId).HasField("ParentId".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.Url).HasField("Url".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.Icon).HasField("Icon".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.SortId).HasField("SortId".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.Creator).HasField("Creator".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.Creator).HasField("Creator".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.MenuName).HasField("MenuCode".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.MenuName).HasField("MenuName".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.MenuType).HasField("MenuType".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.MenuState).HasField("MenuState".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.ParentId).HasField("ParentId".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Url).HasField("Url".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Icon).HasField("Icon".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.SortId).HasField("SortId".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Creator).HasField("Creator".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Creator).HasField("Creator".ToUpper(IsOracleDb, IsConvertToUpperChar));
 
-            builder.Property(t => t.CreateTime).HasField("CreateTime".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.UpdateTime).HasField("UpdateTime".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.DeleteState).HasField("DeleteState".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.CreateTime).HasField("CreateTime".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.UpdateTime).HasField("UpdateTime".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.DeleteState).HasField("DeleteState".ToUpper(IsOracleDb, IsConvertToUpperChar));
+
             builder.Property(t => t.RowVersion).IsConcurrencyToken().ValueGeneratedOnAddOrUpdate();
         }
 

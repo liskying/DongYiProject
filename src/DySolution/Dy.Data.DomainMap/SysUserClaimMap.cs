@@ -1,6 +1,8 @@
-﻿using Dy.Data.Domain;
+﻿using Dy.Core;
+using Dy.Data.Domain;
 using Dy.Infrs;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
 
 namespace Dy.Data.DomainMap
 {
@@ -25,7 +27,7 @@ namespace Dy.Data.DomainMap
         public override void Configure(EntityTypeBuilder<SysUserClaim> builder)
         {
             //表名
-            builder.HasBaseType("SysUserClaim".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.HasBaseType("SysUserClaim".ToUpper(IsOracleDb, IsConvertToUpperChar));
             // Primary Key
             builder.HasKey(t => t.Id);
 
@@ -42,10 +44,10 @@ namespace Dy.Data.DomainMap
             builder.Property(t => t.ClaimValue).HasMaxLength(1000);
 
             // Table & Column Mappings
-            builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.UserId).HasField("UserId".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.ClaimType).HasField("ClaimType".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.ClaimValue).HasField("ClaimValue".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.UserId).HasField("UserId".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.ClaimType).HasField("ClaimType".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.ClaimValue).HasField("ClaimValue".ToUpper(IsOracleDb, IsConvertToUpperChar));
 
         }
         

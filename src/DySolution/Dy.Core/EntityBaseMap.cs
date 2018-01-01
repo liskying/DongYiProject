@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 
-namespace Dy.Data.DomainMap
+namespace Dy.Core
 {
     /// <summary>
     /// 实体映射抽象标准定义

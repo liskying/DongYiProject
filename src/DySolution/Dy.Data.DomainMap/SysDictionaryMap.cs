@@ -1,5 +1,6 @@
 ﻿
 
+using Dy.Core;
 using Dy.Data.Domain;
 using Dy.Infrs;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -25,7 +26,7 @@ namespace Dy.Data.DomainMap
         {
 
             //表名
-            builder.HasBaseType("SysDictionary".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.HasBaseType("SysDictionary".ToUpper(IsOracleDb, IsConvertToUpperChar));
             // Primary Key
             builder.HasKey(t => t.Id);
 
@@ -50,20 +51,21 @@ namespace Dy.Data.DomainMap
             builder.Property(t => t.Creator).HasMaxLength(200);
 
 
-            builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.ParentId).HasField("ParentId".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.DicKey).HasField("DicKey".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.DicType).HasField("DicType".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.DicValue).HasField("DicValue".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.DicLevel).HasField("DicLevel".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.DisName).HasField("DisName".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.SortId).HasField("SortId".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.IsEnabled).HasField("IsEnabled".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.Creator).HasField("Creator".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.ParentId).HasField("ParentId".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.DicKey).HasField("DicKey".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.DicType).HasField("DicType".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.DicValue).HasField("DicValue".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.DicLevel).HasField("DicLevel".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.DisName).HasField("DisName".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.SortId).HasField("SortId".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.IsEnabled).HasField("IsEnabled".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Creator).HasField("Creator".ToUpper(IsOracleDb, IsConvertToUpperChar));
 
-            builder.Property(t => t.CreateTime).HasField("CreateTime".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.UpdateTime).HasField("UpdateTime".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.DeleteState).HasField("DeleteState".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.CreateTime).HasField("CreateTime".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.UpdateTime).HasField("UpdateTime".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.DeleteState).HasField("DeleteState".ToUpper(IsOracleDb, IsConvertToUpperChar));
+
             builder.Property(t => t.RowVersion).IsConcurrencyToken().ValueGeneratedOnAddOrUpdate();
         }
 

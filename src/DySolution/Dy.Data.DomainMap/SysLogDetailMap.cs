@@ -1,4 +1,5 @@
 ﻿
+using Dy.Core;
 using Dy.Data.Domain;
 using Dy.Infrs;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -18,7 +19,7 @@ namespace Dy.Data.DomainMap
         public override void Configure(EntityTypeBuilder<SysLogDetail> builder)
         {
             //表名
-            builder.HasBaseType("SysLogDetail".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.HasBaseType("SysLogDetail".ToUpper(IsOracleDb, IsConvertToUpperChar));
             // Primary Key
             builder.HasKey(t => t.Id);
 
@@ -41,14 +42,15 @@ namespace Dy.Data.DomainMap
 
 
             // Table & Column Mappings
-            builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.LogId).HasField("LogId".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.TableName).HasField("TableName".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.FieldName).HasField("FieldName".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.OriginalVal).HasField("OriginalVal".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.NewValue).HasField("NewValue".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.OperateType).HasField("OperateType".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.CreateTime).HasField("CreateTime".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.LogId).HasField("LogId".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.TableName).HasField("TableName".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.FieldName).HasField("FieldName".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.OriginalVal).HasField("OriginalVal".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.NewValue).HasField("NewValue".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.OperateType).HasField("OperateType".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.CreateTime).HasField("CreateTime".ToUpper(IsOracleDb, IsConvertToUpperChar));
+
         }
 
 

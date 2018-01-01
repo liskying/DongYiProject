@@ -1,4 +1,6 @@
-﻿using Dy.Data.Domain;
+﻿
+using Dy.Core;
+using Dy.Data.Domain;
 using Dy.Infrs;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -18,7 +20,7 @@ namespace Dy.Data.DomainMap
         public override void Configure(EntityTypeBuilder<SysLog> builder)
         {
             //表名
-            builder.HasBaseType("SysLog".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.HasBaseType("SysLog".ToUpper(IsOracleDb, IsConvertToUpperChar));
 
             // Primary Key
             builder.HasKey(t => t.Id);
@@ -44,18 +46,18 @@ namespace Dy.Data.DomainMap
             builder.Property(t => t.LogContent).HasMaxLength(4000);
 
             // Table & Column Mappings
-            builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.UserId).HasField("UserId".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.DeptId).HasField("DeptId".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.DeptName).HasField("DeptName".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.UserName).HasField("UserName".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.EmpName).HasField("EmpName".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.LogIP).HasField("LogIP".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.LogType).HasField("LogType".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.LogContent).HasField("LogContent".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.UserId).HasField("UserId".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.DeptId).HasField("DeptId".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.DeptName).HasField("DeptName".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.UserName).HasField("UserName".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.EmpName).HasField("EmpName".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.LogIP).HasField("LogIP".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.LogType).HasField("LogType".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.LogContent).HasField("LogContent".ToUpper(IsOracleDb, IsConvertToUpperChar));
 
 
-            builder.Property(t => t.CreateTime).HasField("CreateTime".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.CreateTime).HasField("CreateTime".ToUpper(IsOracleDb, IsConvertToUpperChar));
 
 
             builder.HasMany(u => u.LogDetails).WithOne().HasForeignKey(u => u.LogId);

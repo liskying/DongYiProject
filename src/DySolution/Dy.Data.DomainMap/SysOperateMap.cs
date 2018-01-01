@@ -1,4 +1,5 @@
-﻿using Dy.Data.Domain;
+﻿using Dy.Core;
+using Dy.Data.Domain;
 using Dy.Infrs;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -20,7 +21,7 @@ namespace Dy.Data.DomainMap
         public override void Configure(EntityTypeBuilder<SysOperate> builder)
         {
             //表名
-            builder.HasBaseType("SysOperate".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.HasBaseType("SysOperate".ToUpper(IsOracleDb, IsConvertToUpperChar));
             // Primary Key
             builder.HasKey(t => t.Id);
             //操作按钮Code需唯一
@@ -41,12 +42,12 @@ namespace Dy.Data.DomainMap
             builder.Property(t => t.SortId);
 
             // Table & Column Mappings
-            builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.OptionCode).HasField("OptionCode".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.OptionName).HasField("OptionName".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.Style).HasField("Style".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.Icon).HasField("Icon".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.SortId).HasField("SortId".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.OptionCode).HasField("OptionCode".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.OptionName).HasField("OptionName".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Style).HasField("Style".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Icon).HasField("Icon".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.SortId).HasField("SortId".ToUpper(IsOracleDb, IsConvertToUpperChar));
         }
     }
 

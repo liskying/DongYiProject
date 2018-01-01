@@ -1,4 +1,5 @@
-﻿using Dy.Data.Domain;
+﻿using Dy.Core;
+using Dy.Data.Domain;
 using Dy.Infrs;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -25,7 +26,7 @@ namespace Dy.Data.DomainMap
         public override void Configure(EntityTypeBuilder<SysUser> builder)
         {
             //表名
-            builder.HasBaseType("SysUser".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.HasBaseType("SysUser".ToUpper(IsOracleDb, IsConvertToUpperChar));
             // Primary Key
             builder.HasKey(t => t.Id);
             builder.HasAlternateKey(t => t.UserName);
@@ -78,28 +79,28 @@ namespace Dy.Data.DomainMap
             builder.Property(t => t.Creator).HasMaxLength(200);
 
             // Table & Column Mappings
-            builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.UserName).HasField("UserName".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.EmpNo).HasField("EmpNo".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.EmpName).HasField("EmpName".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.EmpSex).HasField("EmpSex".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.EmpBirth).HasField("EmpBirth".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.EmpPinyin).HasField("EmpPinyin".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.Email).HasField("Email".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.EmailConfirmed).HasField("EmailConfirmed".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.PasswordHash).HasField("PasswordHash".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.SecurityStamp).HasField("SecurityStamp".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.PhoneNumber).HasField("PhoneNumber".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.PhoneNumberConfirmed).HasField("PhoneNumberConfirmed".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.TwoFactorEnabled).HasField("TwoFactorEnabled".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.LockoutEndDateUtc).HasField("LockoutEndDateUtc".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.LockoutEnabled).HasField("LockoutEnabled".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.AccessFailedCount).HasField("AccessFailedCount".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.LastLoginDate).HasField("LastLoginDate".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.SortId).HasField("SortId".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.Discriminator).HasField("Discriminator".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.IsSupper).HasField("IsSupper".ToUpper(IsOracleDb, IsConvertToUpperChar));
-            builder.Property(t => t.Creator).HasField("Creator".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Id).HasField("Id".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.UserName).HasField("UserName".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.EmpNo).HasField("EmpNo".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.EmpName).HasField("EmpName".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.EmpSex).HasField("EmpSex".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.EmpBirth).HasField("EmpBirth".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.EmpPinyin).HasField("EmpPinyin".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Email).HasField("Email".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.EmailConfirmed).HasField("EmailConfirmed".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.PasswordHash).HasField("PasswordHash".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.SecurityStamp).HasField("SecurityStamp".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.PhoneNumber).HasField("PhoneNumber".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.PhoneNumberConfirmed).HasField("PhoneNumberConfirmed".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.TwoFactorEnabled).HasField("TwoFactorEnabled".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.LockoutEndDateUtc).HasField("LockoutEndDateUtc".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.LockoutEnabled).HasField("LockoutEnabled".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.AccessFailedCount).HasField("AccessFailedCount".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.LastLoginDate).HasField("LastLoginDate".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.SortId).HasField("SortId".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Discriminator).HasField("Discriminator".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.IsSupper).HasField("IsSupper".ToUpper(IsOracleDb, IsConvertToUpperChar));
+            //builder.Property(t => t.Creator).HasField("Creator".ToUpper(IsOracleDb, IsConvertToUpperChar));
 
             builder.HasMany(u => u.UserRoles).WithOne(u => u.User).HasForeignKey(u => u.UserId);
             builder.HasMany(u => u.UserClaims).WithOne(u => u.User).HasForeignKey(u => u.UserId);
