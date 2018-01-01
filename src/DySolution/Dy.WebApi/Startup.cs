@@ -13,6 +13,11 @@ using Swashbuckle.AspNetCore.SwaggerUI;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.Extensions.PlatformAbstractions;
 using System.IO;
+using Dy.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
+using Dy.Data.Domain;
+using Microsoft.AspNetCore.Identity;
 
 namespace Dy.WebApi
 {
@@ -37,26 +42,63 @@ namespace Dy.WebApi
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="services"></param>
+        /// <param name="services">依赖注入服务</param>
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //Db配置
+            services.AddDbContext<DyDbContext>(u =>
+            {
+                u.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection"),
+                    m => m.MaxBatchSize(5000)
+                    .MigrationsHistoryTable("SysMigrationHistory")
+                    .UseRelationalNulls(true)
+                    .UseRowNumberForPaging(true)
+                );
+            });
+
+            //Db上下文池配置
+            services.AddDbContextPool<DyDbContext>(u =>
+            {
+                u.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection"),
+                    m => m.MaxBatchSize(5000)
+                    .MigrationsHistoryTable("SysMigrationHistory")
+                    .UseRelationalNulls(true)
+                    .UseRowNumberForPaging(true)
+                );
+            });
+
+            //认证配置
+            services.AddIdentity<SysUser, SysRole>()
+                .AddEntityFrameworkStores<DyDbContext>()
+                .AddDefaultTokenProviders();
+
+            //帮助文档配置
             services.AddSwaggerGen(config =>
             {
-                config.SwaggerDoc("v1", new Info
+                Info info = new Info
                 {
                     Title = "Api接口",
                     Version = "v1",
-                    Description = "",
-                    Contact = new Contact
-                    {
-                        Name = "XXX"
-                    }
-                });
+                    Description = ""
+                };
+
+                config.SwaggerDoc("v1", info);
+
                 var basePath = PlatformServices.Default.Application.ApplicationBasePath;
                 var xmlPath = Path.Combine(basePath, "Dy.WebApi.xml");
                 config.IncludeXmlComments(xmlPath);
             });
-            services.AddMvc();
+
+            //Mvc配置
+            services.AddMvc(u =>
+            {
+
+            })
+            .AddXmlSerializerFormatters();
+
             services.AddMvcCore().AddApiExplorer();
         }
 
@@ -73,6 +115,7 @@ namespace Dy.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            
             app.UseMvc(routes =>
             {
                 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
@@ -83,7 +126,7 @@ namespace Dy.WebApi
                 c.RouteTemplate = "api-docs/{documentName}/swagger.json";
                 c.PreSerializeFilters.Add((swaggerDoc, httpReq) => swaggerDoc.Host = httpReq.Host.Value);
 
-              });
+            });
 
             app.UseSwaggerUI(c =>
             {
