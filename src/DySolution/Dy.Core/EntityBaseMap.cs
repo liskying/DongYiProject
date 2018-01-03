@@ -1,8 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 
-namespace Dy.Core
+namespace Microsoft.EntityFrameworkCore
 {
     /// <summary>
     /// 实体映射抽象标准定义

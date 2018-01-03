@@ -1,7 +1,5 @@
-﻿
-using Dy.Core;
-using Dy.Data.Domain;
-using Dy.Infrs;
+﻿using Dy.Data.Domain;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Dy.Data.DomainMap

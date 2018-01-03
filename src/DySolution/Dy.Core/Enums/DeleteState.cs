@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dy.Data.Domain
+namespace Dy.Core.Enums
 {
     /// <summary>
     /// 删除标识

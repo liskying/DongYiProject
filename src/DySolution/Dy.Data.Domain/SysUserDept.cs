@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dy.Core.Enums;
+using System;
 
 namespace Dy.Data.Domain
 {

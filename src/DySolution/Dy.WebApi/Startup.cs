@@ -20,6 +20,7 @@ using Dy.Data.Domain;
 using Microsoft.AspNetCore.Identity;
 using Dy.Data.Initialize;
 using Dy.Service;
+using Dy.Core.Enums;
 
 namespace Dy.WebApi
 {
@@ -76,6 +77,11 @@ namespace Dy.WebApi
             services.AddIdentity<SysUser, SysRole>()
                 .AddEntityFrameworkStores<DyDbContext>()
                 .AddDefaultTokenProviders();
+                
+            //仓储以及工作单元注册
+            services
+                .AddDbContext<DyDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")))
+                .RegUnitOfWork<DyDbContext>();
 
             services.AddScoped<IUserValidator<SysUser>, UserValidator<SysUser>>();
             services.AddScoped<PasswordHasher<SysUser>, PasswordHasher<SysUser>>();

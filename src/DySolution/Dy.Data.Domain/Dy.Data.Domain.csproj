@@ -10,4 +10,12 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Enums\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dy.Core\Dy.Core.csproj" />
+  </ItemGroup>
+
 </Project>

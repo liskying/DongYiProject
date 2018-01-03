@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Dy.Data.Domain.Enums
+﻿namespace Dy.Core.Enums
 {
     /// <summary>
     /// 菜单所属应用设备类型
